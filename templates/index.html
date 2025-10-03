@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}Welcome{% endblock %}
+
+{% block content %}
+  <h1>Welcome to Student Exam App</h1>
+  <p class="text-center">Click below to predict your exam performance.</p>
+  <div class="d-flex justify-content-center mt-4">
+    <a href="{{ url_for('home') }}" class="btn btn-primary">Go to Prediction Page</a>
+  </div>
+{% endblock %}

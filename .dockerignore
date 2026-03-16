@@ -9,7 +9,6 @@ __pycache__
 .sqlite3
 tests/
 logs/
-artifacts/*.csv
 README.md
 Dockerfile
 .dockerignore

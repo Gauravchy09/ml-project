@@ -15,6 +15,7 @@ class DataIngestionConfig:
     train_data_path: str=os.path.join('artifacts',"train.csv")
     test_data_path: str=os.path.join('artifacts',"test.csv")
     raw_data_path: str=os.path.join('artifacts',"data.csv")
+    source_data_path: str=os.path.join('src', 'notebook', 'data', 'stud.csv')
 
 class DataIngestion:
     def __init__(self):
@@ -23,7 +24,7 @@ class DataIngestion:
     def initiate_data_ingestion(self):
         logging.info("Entered the data ingestion method or component")
         try:
-            df = pd.read_csv(r'D:\ml-project\src\notebook\data\stud.csv')
+            df = pd.read_csv(self.ingestion_config.source_data_path)
             logging.info('Read the dataset as dataFrame')
             os.makedirs(os.path.dirname(self.ingestion_config.train_data_path), exist_ok=True)
             df.to_csv(self.ingestion_config.raw_data_path, index=False, header=True)

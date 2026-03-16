@@ -1,0 +1,16 @@
+.git
+.gitignore
+venv
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.db
+.sqlite3
+tests/
+logs/
+artifacts/*.csv
+README.md
+Dockerfile
+.dockerignore
+k8s/

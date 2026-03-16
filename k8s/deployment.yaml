@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ml-project
+  labels:
+    app: ml-project
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ml-project
+  template:
+    metadata:
+      labels:
+        app: ml-project
+    spec:
+      containers:
+      - name: ml-project
+        image: student-performance-mlops:latest
+        ports:
+        - containerPort: 5000
+        resources:
+          limits:
+            cpu: "500m"
+            memory: "512Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"

@@ -51,8 +51,44 @@ The project integrates an **end-to-end ML lifecycle** — from preprocessing and
 
 ## 🐳 Docker Setup
 
-### Build Docker Image
+### 1. Build the Docker Image
+```bash
+docker build -t student-performance-mlops .
+```
+
+### 2. Run the Docker Container
+```bash
 docker run -p 5000:5000 student-performance-mlops
+```
+
+---
+
+## ☸️ Kubernetes Setup
+
+### 1. Deploy to Kubernetes
+Apply the deployment and service manifests:
+```bash
+kubectl apply -f k8s/deployment.yaml
+kubectl apply -f k8s/service.yaml
+```
+
+### 2. Verify Resources
+```bash
+kubectl get pods
+kubectl get services
+```
+
+### 3. Access the Application
+If you are using Minikube:
+```bash
+minikube service ml-project-service
+```
+Otherwise, check the service status to find the external IP:
+```bash
+kubectl get service ml-project-service
+```
+
+---
 
 ## 📊 Results
 
@@ -77,4 +113,6 @@ Deploy model as a REST API or Streamlit web app
 
 ---
 ```bash
-docker build -t student-performance-mlops .
+# Clean up
+docker stop $(docker ps -q --filter ancestor=student-performance-mlops)
+```
